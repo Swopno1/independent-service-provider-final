@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from '../Card/Card';
 
 const services = [
   {
@@ -60,11 +61,9 @@ const Services = () => {
       <h2 className='text-4xl text-center font-semibold mb-12'>
         Featured Services
       </h2>
-      <div className='service-container flex'>
+      <div className='service-container grid grid-cols-3 gap-6 overflow-x-scroll'>
         {services.map((service) => (
-          <div className='w-80 border'>
-            <h3>Text</h3>
-          </div>
+          <Card service={service} key={service.id} />
         ))}
       </div>
     </section>
