@@ -2,14 +2,18 @@ import React from 'react';
 
 const Banner = () => {
   return (
-    <div className='w-full'>
+    <div className='w-full bg-slate-900'>
       <div className='relative text-center'>
-        <img src='https://i.ibb.co/xHbLqWF/image16.jpg' alt='main-banner' />
+        <img
+          className='s opacity-30'
+          src='https://i.ibb.co/xHbLqWF/image16.jpg'
+          alt='main-banner'
+        />
         <div className='banner-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-          <p className='text-5xl font-extrabold mb-7'>
+          <p className='text-5xl text-white font-extrabold mb-7'>
             Where will you go next?
           </p>
-          <p className='mb-7'>
+          <p className='mb-7 text-white'>
             Buran Ghati Trek. There is not a single moment on this trek where
             you get frustrated. It's as if someone has pulled out all the best
             parts of our Himalayan tracks and sewn them together to make a
