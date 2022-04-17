@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Services from './components/Services/Services';
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Travel Geeks BD</h1>
-    </div>
+    <>
+      <Header></Header>
+      <Services></Services>
+      <Footer></Footer>
+    </>
   );
 }
 

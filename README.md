@@ -30,3 +30,13 @@ We may not use some of the package at the end of the project i.e., some of these
 #### Image Hosting
 
 - https://imgbb.com/
+
+#### Color Scheme
+
+- #FFA902 Orange
+- #FFFFFF White
+- #141414 Black
+
+#### Font Family
+
+- Poppins: <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
