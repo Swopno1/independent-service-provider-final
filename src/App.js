@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import Services from './components/Services/Services';
+import Home from './Pages/Home/Home';
 
 function App() {
   return (
     <>
       <Header></Header>
-      <Services></Services>
+      <Home></Home>
       <Footer></Footer>
     </>
   );
