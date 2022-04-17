@@ -11,14 +11,14 @@ const quickLinks = [
 
 const Footer = () => {
   return (
-    <footer className='absolute w-full bottom-0 bg-orange-400'>
+    <footer className='w-full bg-orange-400 text-white'>
       <div className='footer container mx-auto flex justify-between items-center h-36'>
         <p className='copyright-text w-1/3'>
           &copy; {new Date().getFullYear()} TravelGeeksBd All Right Reserved
         </p>
 
-        <div className='quick-link w-1/3 flex justify-end text-center text-white'>
-          <ul className='flex justify-center text-white'>
+        <div className='quick-link w-1/3 flex justify-end text-center'>
+          <ul className='flex justify-center'>
             {quickLinks.map((item) => (
               <li className='py-1 px-4' key={item.id}>
                 <Link to={item.href}>{item.name}</Link>

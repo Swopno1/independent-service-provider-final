@@ -11,12 +11,14 @@ function App() {
   return (
     <>
       <Header></Header>
-      <Routes>
-        <Route path='/' element={<Home></Home>} />
-        <Route path='/home' element={<Home></Home>} />
-        <Route path='/services' element={<Services></Services>} />
-        <Route path='*' element={<NotFound></NotFound>} />
-      </Routes>
+      <main className='min min-h-screen'>
+        <Routes>
+          <Route path='/' element={<Home></Home>} />
+          <Route path='/home' element={<Home></Home>} />
+          <Route path='/services' element={<Services></Services>} />
+          <Route path='*' element={<NotFound></NotFound>} />
+        </Routes>
+      </main>
       <Footer></Footer>
     </>
   );
