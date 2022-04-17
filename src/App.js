@@ -4,7 +4,7 @@ import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Services from './components/Services/Services';
-import Home from './Pages/Home/Home';
+import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
