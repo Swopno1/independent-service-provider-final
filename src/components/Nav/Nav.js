@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const navItems = [
   { id: 1, name: 'Home', ref: '/home' },
