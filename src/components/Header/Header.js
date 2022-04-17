@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../Nav/Nav';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const Header = () => {
   return (
@@ -20,8 +21,19 @@ const Header = () => {
             placeholder='Search Anything'
           />
         </div>
-        <div className='social-icon w-1/5 text-right text-white'>
-          <a href='/'>FB</a>
+        <div className='social-icon text-right flex justify-end w-1/5 text-white'>
+          <a className='pl-3 text-2xl' href='/'>
+            <FaFacebook />
+          </a>
+          <a className='pl-3 text-2xl' href='/'>
+            <FaInstagram />
+          </a>
+          <a className='pl-3 text-2xl' href='/'>
+            <FaInstagram />
+          </a>
+          <a className='pl-3 text-2xl' href='/'>
+            <FaInstagram />
+          </a>
         </div>
       </div>
       <Nav></Nav>
