@@ -37,6 +37,11 @@ We may not use some of the package at the end of the project i.e., some of these
 - #FFFFFF White
 - #141414 Black
 
+#### For Icons
+
+- React Icons
+- Hero Icons
+
 #### Font Family
 
 - Poppins: <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
