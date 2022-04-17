@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../Nav/Nav';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -8,7 +9,9 @@ const Header = () => {
       <div className='top-bar container mx-auto flex justify-between items-center border-b border-b-[rgba(255,255,255,0.5)] shadow'>
         <div className='main-logo w-1/5'>
           <h1 className='text-orange-400 text-2xl font-extrabold'>
-            TravelGeeks<span className='text-white'>BD</span>
+            <Link to='/'>
+              TravelGeeks<span className='text-white'>BD</span>
+            </Link>
           </h1>
         </div>
 
@@ -22,7 +25,12 @@ const Header = () => {
           />
         </div>
         <div className='social-icon text-right flex justify-end w-1/5 text-white'>
-          <a className='pl-3 text-2xl' href='/'>
+          <a
+            className='pl-3 text-2xl'
+            href='https://www.facebook.com/groups/tgeeksbd'
+            target='_blank'
+            rel='noreferrer'
+          >
             <FaFacebook />
           </a>
           <a className='pl-3 text-2xl' href='/'>

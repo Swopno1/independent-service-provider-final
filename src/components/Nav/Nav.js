@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const navItems = [
   { id: 1, name: 'Home', ref: '/home' },
@@ -14,7 +15,7 @@ const Nav = () => {
       <ul className='flex justify-center text-white'>
         {navItems.map((item) => (
           <li className='py-3 px-10' key={item.id}>
-            <a href={item.ref}>{item.name}</a>
+            <Link to={item.ref}>{item.name}</Link>
           </li>
         ))}
       </ul>
