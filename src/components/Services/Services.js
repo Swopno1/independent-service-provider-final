@@ -12,7 +12,7 @@ const Services = () => {
 
   return (
     <section
-      className='services container mx-auto my-24
+      className='services container mx-auto my-12
     '
     >
       <h2 className='text-4xl text-center font-semibold mb-12'>
