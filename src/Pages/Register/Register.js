@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Register = () => {
+  const nameRef = useRef('');
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
+
+  let message = '';
+
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = nameRef.current.value;
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    createUserWithEmailAndPassword(email, password);
+  };
+
+  if (error) {
+    message = error;
+  }
+  if (loading) {
+    message = <p>Loading...</p>;
+  }
+  if (user) {
+    message = <p>Registered User: {user.email}</p>;
+  }
+
   return (
     <div className='min-h-full flex items-center justify-center py-12 px-4'>
       <div className='max-w-md w-full space-y-8'>
@@ -16,13 +46,17 @@ const Register = () => {
             Please Register
           </h2>
         </div>
-        <form className='mt-8 space-y-6'>
+        <h2 className='mt-6 text-center text-xl font-bold text-red-700'>
+          {message}
+        </h2>
+        <form className='mt-8 space-y-6' onSubmit={handleSubmit}>
           <div className='rounded-md shadow-md -space-y-px'>
             <div>
               <label htmlFor='user-name' className='sr-only'>
                 Email address
               </label>
               <input
+                ref={nameRef}
                 id='user-name'
                 name='name'
                 type='text'
@@ -37,6 +71,7 @@ const Register = () => {
                 Email address
               </label>
               <input
+                ref={emailRef}
                 id='email-address'
                 name='email'
                 type='email'
@@ -51,6 +86,7 @@ const Register = () => {
                 Password
               </label>
               <input
+                ref={passwordRef}
                 id='password'
                 name='password'
                 type='password'
