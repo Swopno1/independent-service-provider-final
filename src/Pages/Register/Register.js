@@ -1,7 +1,10 @@
 import React, { useRef } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Register = () => {
@@ -14,23 +17,23 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-  const handleSubmit = (e) => {
+  const [updateProfile, updating, userUpdateError] = useUpdateProfile(auth);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = nameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
   };
 
-  if (error) {
+  if (error || userUpdateError) {
     message = error;
   }
-  if (loading) {
+  if (loading || updating) {
     message = <p>Loading...</p>;
-  }
-  if (user) {
-    message = <p>Registered User: {user.email}</p>;
   }
 
   return (
