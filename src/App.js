@@ -27,7 +27,7 @@ function App() {
           <Route path='/signin' element={<Signin></Signin>} />
           <Route path='/register' element={<Register></Register>} />
           <Route
-            path='/checkout'
+            path='/services/:serviceID'
             element={
               <RequireAuth>
                 <Checkout></Checkout>

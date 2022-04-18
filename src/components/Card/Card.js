@@ -7,7 +7,7 @@ const Card = ({ service }) => {
   const navigate = useNavigate();
 
   const handleBookingBtn = (e) => {
-    navigate('/checkout');
+    navigate(`/services/${service.id}`);
   };
 
   return (
