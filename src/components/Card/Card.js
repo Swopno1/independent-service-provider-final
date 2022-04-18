@@ -1,7 +1,16 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Card = ({ service }) => {
   const { name, img, description, price } = service;
+
+  const navigate = useNavigate();
+
+  let message = '';
+
+  const handleBookingBtn = (e) => {
+    navigate('/checkout');
+  };
 
   return (
     <div className='w-[370px] h-[517px] border rounded-md shadow-md'>
@@ -13,7 +22,9 @@ const Card = ({ service }) => {
         <p className='text-sm'>{description}</p>
         <div className='flex justify-between pt-2'>
           <h4>Price: ${price}</h4>
-          <button>Book Your Trip</button>
+          <button onClick={() => handleBookingBtn(service)}>
+            Book Your Trip
+          </button>
         </div>
       </div>
     </div>
