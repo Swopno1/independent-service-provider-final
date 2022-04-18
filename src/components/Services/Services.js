@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../Card/Card';
 
-const services = [];
-
 const Services = () => {
   const [services, setServices] = useState([]);
 
@@ -20,7 +18,7 @@ const Services = () => {
       <h2 className='text-4xl text-center font-semibold mb-12'>
         Featured Services
       </h2>
-      <div className='service-container grid grid-cols-3 gap-6'>
+      <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto'>
         {services.map((service) => (
           <Card service={service} key={service.id} />
         ))}
