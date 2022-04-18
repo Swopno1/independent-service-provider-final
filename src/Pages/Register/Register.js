@@ -38,6 +38,9 @@ const Register = () => {
   if (loading || updating) {
     message = <p>Loading...</p>;
   }
+  if (user) {
+    navigate('/');
+  }
 
   return (
     <div className='min-h-full flex items-center justify-center py-12 px-4'>
