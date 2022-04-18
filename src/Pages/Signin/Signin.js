@@ -1,8 +1,46 @@
 import { LockClosedIcon } from '@heroicons/react/solid';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import Loading from '../../components/Loading/Loading';
 
 const Signin = () => {
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
+
+  const navigate = useNavigate();
+  const location = useLocation('');
+
+  let from = location.state?.from?.pathname || '/';
+  let message = '';
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  if (error) {
+    message = <p className='text-danger'>Error: {error?.message}</p>;
+  }
+  if (loading) {
+    message = <Loading></Loading>;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+  }
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.valur;
+
+    signInWithEmailAndPassword(email, password);
+  };
+
+  const navigateRegister = (e) => {
+    navigate('/register');
+  };
+
   return (
     <div className='min-h-full flex items-center justify-center py-12 px-4'>
       <div className='max-w-md w-full space-y-8'>
@@ -16,13 +54,15 @@ const Signin = () => {
             Please Register
           </h2>
         </div>
-        <form className='mt-8 space-y-6'>
+        {message}
+        <form className='mt-8 space-y-6' onSubmit={handleSignIn}>
           <div className='rounded-md shadow-md -space-y-px'>
             <div>
               <label htmlFor='email-address' className='sr-only'>
                 Email address
               </label>
               <input
+                ref={emailRef}
                 id='email-address'
                 name='email'
                 type='email'
@@ -37,6 +77,7 @@ const Signin = () => {
                 Password
               </label>
               <input
+                ref={passwordRef}
                 id='password'
                 name='password'
                 type='password'
@@ -52,6 +93,7 @@ const Signin = () => {
               New to TravelGeeksBD?{' '}
               <Link
                 to='/register'
+                onClick={navigateRegister}
                 className='font-medium text-indigo-600 hover:text-indigo-500'
               >
                 Please Register now

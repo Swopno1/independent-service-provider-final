@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
@@ -11,6 +11,8 @@ const Register = () => {
   const nameRef = useRef('');
   const emailRef = useRef('');
   const passwordRef = useRef('');
+
+  const navigate = useNavigate();
 
   let message = '';
 
@@ -27,6 +29,7 @@ const Register = () => {
 
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
+    await navigate('/home');
   };
 
   if (error || userUpdateError) {
