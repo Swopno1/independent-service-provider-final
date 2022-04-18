@@ -24,24 +24,11 @@ const Header = () => {
             placeholder='Search Anything'
           />
         </div>
-        <div className='social-icon text-right flex justify-end w-1/5 text-white'>
-          <a
-            className='pl-3 text-2xl'
-            href='https://www.facebook.com/groups/tgeeksbd'
-            target='_blank'
-            rel='noreferrer'
-          >
-            <FaFacebook />
-          </a>
-          <a className='pl-3 text-2xl' href='/'>
-            <FaInstagram />
-          </a>
-          <a className='pl-3 text-2xl' href='/'>
-            <FaInstagram />
-          </a>
-          <a className='pl-3 text-2xl' href='/'>
-            <FaInstagram />
-          </a>
+        <div className='user-menu text-right flex justify-end w-1/5 text-white'>
+          <Link to='/signin'>SignIn</Link>
+          <Link className='ml-4' to='/register'>
+            Register
+          </Link>
         </div>
       </div>
       <Nav></Nav>

@@ -61,7 +61,7 @@ const Services = () => {
       <h2 className='text-4xl text-center font-semibold mb-12'>
         Featured Services
       </h2>
-      <div className='service-container grid grid-cols-3 gap-6 overflow-x-scroll'>
+      <div className='service-container grid grid-cols-3 gap-6'>
         {services.map((service) => (
           <Card service={service} key={service.id} />
         ))}
