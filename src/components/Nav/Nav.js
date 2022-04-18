@@ -5,7 +5,7 @@ const navItems = [
   { id: 1, name: 'Home', ref: '/home' },
   { id: 2, name: 'About Me', ref: '/about' },
   { id: 3, name: 'Services', ref: '/services' },
-  { id: 4, name: 'Blog', ref: '/blog' },
+  { id: 4, name: 'Blogs', ref: '/blogs' },
   { id: 5, name: 'Contact Me', ref: '/contact' },
 ];
 
