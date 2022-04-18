@@ -13,7 +13,7 @@ const Card = ({ service }) => {
         <p className='text-sm'>{description}</p>
         <div className='flex justify-between pt-2'>
           <h4>Price: ${price}</h4>
-          <button>Add To Cart</button>
+          <button>Book Your Trip</button>
         </div>
       </div>
     </div>
