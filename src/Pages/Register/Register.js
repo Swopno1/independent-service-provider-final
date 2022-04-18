@@ -63,11 +63,12 @@ const Register = () => {
           </div>
           <div className='flex item-center justify-between'>
             <div className='text-sm'>
+              Already have an account?{' '}
               <Link
                 to='/signin'
                 className='font-medium text-indigo-600 hover:text-indigo-500'
               >
-                Already have an account?
+                Please Sign in.
               </Link>
             </div>
           </div>

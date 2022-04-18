@@ -47,14 +47,14 @@ const Signin = () => {
               />
             </div>
           </div>
-          <div className='flex item-center justify-between'>
-            <div className='text-sm'>
+          <div className=''>
+            <div className='text-sm mb-3'>
               New to TravelGeeksBD?{' '}
               <Link
-                to='/signin'
+                to='/register'
                 className='font-medium text-indigo-600 hover:text-indigo-500'
               >
-                Register Now
+                Please Register now
               </Link>
             </div>
             <div className='text-sm'>
