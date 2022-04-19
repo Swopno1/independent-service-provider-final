@@ -10,12 +10,14 @@ const Blogs = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Blogs</h2>
-      {articles.map((article) => (
-        <Article key={article.id} article={article}></Article>
-      ))}
-    </div>
+    <section className='services container mx-auto my-12'>
+      <h2 className='text-4xl text-center font-semibold mb-12'>Latest Posts</h2>
+      <div>
+        {articles.map((post) => (
+          <Article posts={post} key={post.id} />
+        ))}
+      </div>
+    </section>
   );
 };
 
