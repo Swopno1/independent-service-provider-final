@@ -25,12 +25,12 @@ const PostCard = ({ posts }) => {
   const { title, post, author, img, date } = posts;
 
   return (
-    <div className='flex mb-6 rounded-md border shadow-md'>
-      <div className='w-52 rounded-l-md mr-3'>
-        <img src={img} alt={title} />
+    <div className='sm:flex mb-6 rounded-md border shadow-md'>
+      <div className='w-full sm:w-52 rounded-l-md border shadow-md mr-3'>
+        <img className='w-full' src={img} alt={title} />
       </div>
       <div className='my-2 mr-2 w-full'>
-        <div className='block w-auto border-b-2'>
+        <div className='block w-auto border-b-2 pb-2'>
           <h3 className='text-lg font-semibold'>{title}</h3>
           <p>
             <small>

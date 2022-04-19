@@ -12,9 +12,9 @@ const navItems = [
 const Nav = () => {
   return (
     <nav className='container mx-auto bg-transparent'>
-      <ul className='flex justify-center text-white'>
+      <ul className='sm:flex justify-center text-white text-center'>
         {navItems.map((item) => (
-          <li className='py-3 px-10' key={item.id}>
+          <li className='sm:py-3 sm:px-10' key={item.id}>
             <Link to={item.ref}>{item.name}</Link>
           </li>
         ))}

@@ -3,14 +3,14 @@ import React from 'react';
 const Banner = () => {
   return (
     <div className='w-full bg-slate-900'>
-      <div className='relative text-center'>
+      <div className='relative text-center py-3'>
         <img
-          className='s opacity-30'
+          className='opacity-30'
           src='https://i.ibb.co/xHbLqWF/image16.jpg'
           alt='main-banner'
         />
-        <div className='banner-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-          <p className='text-5xl text-white font-extrabold mb-7'>
+        <div className='banner-text sm:absolute sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2'>
+          <p className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-extrabold py-7'>
             Where will you go next?
           </p>
           <p className='mb-7 text-white'>
