@@ -12,21 +12,20 @@ const quickLinks = [
 const Footer = () => {
   return (
     <footer className='w-full bg-orange-400 text-white'>
-      <div className='footer container mx-auto flex justify-between items-center h-36'>
-        <p className='copyright-text w-1/3'>
+      <div className='footer container mx-auto grid grid-cols-1 md:grid-cols-3 gap-0 h-36 items-center'>
+        <p className='copyright-text text-center md:text-left'>
           &copy; {new Date().getFullYear()} TravelGeeksBd All Right Reserved
         </p>
-
-        <div className='quick-link w-1/3 flex justify-end text-center'>
-          <ul className='flex justify-center'>
+        <div className='quick-link'>
+          <ul className='flex md:block lg:flex justify-center text-center'>
             {quickLinks.map((item) => (
-              <li className='py-1 px-4' key={item.id}>
+              <li className='px-4 font-bold' key={item.id}>
                 <Link to={item.href}>{item.name}</Link>
               </li>
             ))}
           </ul>
         </div>
-        <div className='copyright-text text-right flex justify-end w-1/3'>
+        <div className='social-icon mx-auto md:text-right flex justify-end'>
           <a
             className='pl-3 text-2xl'
             href='https://www.facebook.com/groups/tgeeksbd'
