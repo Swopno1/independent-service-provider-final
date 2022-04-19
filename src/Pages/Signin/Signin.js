@@ -1,14 +1,19 @@
 import { LockClosedIcon } from '@heroicons/react/solid';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../../components/Loading/Loading';
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Signin = () => {
-  const emailRef = useRef('');
-  const passwordRef = useRef('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const emailRef = useRef();
+  // const passwordRef = useRef();
 
   const navigate = useNavigate();
   const location = useLocation('');
@@ -19,27 +24,43 @@ const Signin = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  if (error) {
-    message = <p className='text-danger'>Error: {error?.message}</p>;
+  const [sendPasswordResetEmail, sending, error2] =
+    useSendPasswordResetEmail(auth);
+
+  if (error || error2) {
+    message = (
+      <p className='text-danger'>
+        Error: {error?.message} {error2?.message}
+      </p>
+    );
   }
-  if (loading) {
+  if (loading || sending) {
     message = <Loading></Loading>;
   }
-  if (user) {
-    navigate(from, { replace: true });
-  }
+  // if (user) {
+  //   navigate(from, { replace: true });
+  // }
 
   const handleSignIn = (e) => {
+    console.log('SignIn Click');
     e.preventDefault();
 
-    const email = emailRef.current.value;
-    const password = passwordRef.current.valur;
+    // const email = emailRef.current.value;
+    // const password = passwordRef.current.valur;
 
     signInWithEmailAndPassword(email, password);
+    navigate(from, { replace: true });
   };
 
-  const navigateRegister = (e) => {
-    navigate('/register');
+  // const navigateRegister = (e) => {
+  //   navigate('/register');
+  //   console.log('Navigate');
+  // };
+
+  const resetPassword = () => {
+    // const email = emailRef.current.value;
+    // sendPasswordResetEmail(email);
+    alert('Email sent!');
   };
 
   return (
@@ -64,7 +85,8 @@ const Signin = () => {
                   Email address
                 </label>
                 <input
-                  ref={emailRef}
+                  // ref={emailRef}
+                  onBlur={() => setEmail()}
                   id='email-address'
                   name='email'
                   type='email'
@@ -79,7 +101,8 @@ const Signin = () => {
                   Password
                 </label>
                 <input
-                  ref={passwordRef}
+                  // ref={passwordRef}
+                  onBlur={() => setPassword()}
                   id='password'
                   name='password'
                   type='password'
@@ -95,7 +118,7 @@ const Signin = () => {
                 New to TravelGeeksBD?{' '}
                 <Link
                   to='/register'
-                  onClick={navigateRegister}
+                  // onClick={navigateRegister}
                   className='font-medium text-indigo-600 hover:text-indigo-500'
                 >
                   Please Register now
@@ -104,6 +127,7 @@ const Signin = () => {
               <div className='text-sm'>
                 <Link
                   to='/signin'
+                  onClick={resetPassword}
                   className='font-medium text-indigo-600 hover:text-indigo-500'
                 >
                   Forgot your password?
@@ -115,12 +139,6 @@ const Signin = () => {
                 type='submit'
                 className='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
               >
-                <span className='absolute left-0 inset-y-0 flex items-center pl-3'>
-                  <LockClosedIcon
-                    className='h-5 w-5 text-indigo-500 group-hover:text-indigo-400'
-                    aria-hidden='true'
-                  />
-                </span>
                 Sign in
               </button>
             </div>
